@@ -96,7 +96,7 @@ const App = () => {
                   />
                 </label>
               </div>
-              <div className="form-control mb-16">
+              <div className="form-control mb-6">
                 <label className="label cursor-pointer">
                   <span className="label-text">চলো না হারিয়ে যাই, দুজনে!</span>
                   <input
@@ -108,9 +108,8 @@ const App = () => {
                 </label>
               </div>
               <button
-                className="mt-6 font-medium  transition duration-200  shadow-md  md:mb-0  px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl  text-white bg-teal-500 hover:bg-transparent hover:text-teal-400 border-0 border-b-4 border-teal-800 cursor-pointer"
+                className="font-medium  transition duration-200  shadow-md  md:mb-0  px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl  text-white bg-teal-500 hover:bg-transparent hover:text-teal-400 border-0 border-b-4 border-teal-800 cursor-pointer"
                 type="submit"
-                data-aos="fade-up"
               >
                 Submit
               </button>
