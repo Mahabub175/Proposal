@@ -40,10 +40,15 @@ const App = () => {
 
       localStorage.setItem("selectedRadio", selectedValue);
 
-      toast.success("আমি তোমার জন্য সবসময় প্রস্তুত, তুমি শুধু আসো আমার পাশে");
+      toast.success("ধন্যবাদ বাবুনি, আর আমি তো তোমাকে সবচেয়ে বেশি ভালোবাসি।");
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
+  const [value, setValue] = useState(null);
+  useEffect(() => {
+    localStorage.getItem(setValue("selectedRadio"));
+  }, []);
   return (
     <div className="mt-[60%] md:mt-[20%]">
       {loading ? (
@@ -65,8 +70,8 @@ const App = () => {
               className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-teal-400 to-blue-600 text-transparent bg-clip-text"
               data-aos="fade-right"
             >
-              সুমাইয়া, কালকে প্রাইভেট বাঙ্ক করো প্লিজ, চলো না কোথাও যাই শুধু
-              তুমি আর আমি।
+              মেহেরুন, আমি চাই তুমি আমাকে তোমার সবটুকু দিয়ে আমাকে ভালবাসো। পারবে
+              কি এতটা ভালবাসা দিতে পারতে?
             </p>
           )}
           {showText2 && (
@@ -74,7 +79,7 @@ const App = () => {
               className="mt-12 text-xl bg-gradient-to-r from-blue-400 via-red-400 to-blue-600 text-transparent bg-clip-text"
               data-aos="fade-left"
             >
-              চলো না ঘুরে আসি অজানাতে, <br /> যেখানে নদী এসে থেমে গেছে।
+              এই ভালোবাসা তোমাকে পেতে চায়, <br /> ওই দুটি চোখ যেন কিছু বলে যায়।
             </p>
           )}
           {showText3 && (
@@ -86,24 +91,27 @@ const App = () => {
               <div className="form-control">
                 <label className="label cursor-pointer">
                   <span className="label-text">
-                    কালকে পর্যন্ত অপেক্ষা করতে পারব না, এখনই চলো
+                    আমি তো তোমাকে আমার সবটুকু দিয়ে ভালোবাসি, আর কত বাসবো!
                   </span>
                   <input
                     type="radio"
                     name="radio-10"
                     className="radio checked:bg-red-500"
-                    value="কালকে পর্যন্ত অপেক্ষা করতে পারব না, এখনই চলো"
+                    value="আমি তো তোমাকে আমার সবটুকু দিয়ে ভালোবাসি, আর কত বাসবো!"
                   />
                 </label>
               </div>
               <div className="form-control mb-6">
                 <label className="label cursor-pointer">
-                  <span className="label-text">চলো না হারিয়ে যাই, দুজনে!</span>
+                  <span className="label-text">
+                    ঠিক আছে বাবান, আমি তোমাকে আমার সবটুকু ভালোবাসা দিয়ে ভরিয়ে
+                    দিব!
+                  </span>
                   <input
                     type="radio"
                     name="radio-10"
                     className="radio checked:bg-blue-500"
-                    value="চলো না হারিয়ে যাই, দুজনে!"
+                    value="ঠিক আছে বাবান, আমি তোমাকে আমার সবটুকু ভালোবাসা দিয়ে ভরিয়ে দিব!"
                   />
                 </label>
               </div>
