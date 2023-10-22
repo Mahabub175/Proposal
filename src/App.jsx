@@ -69,9 +69,7 @@ const App = () => {
             <p
               className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-teal-400 to-blue-600 text-transparent bg-clip-text"
               data-aos="fade-right"
-            >
-              কণিকা, তোমার কিউট করে বেণী করাটা কি আমি এক নজরের জন্য দেখতে পারি?
-            </p>
+            ></p>
           )}
           {showText2 && (
             <p
