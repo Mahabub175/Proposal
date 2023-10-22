@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import "./App.css";
 import { Hearts } from "react-loader-spinner";
@@ -51,7 +52,7 @@ const App = () => {
   }, []);
   return (
     <div className="mt-[60%] md:mt-[20%]">
-      {loading ? (
+      {/* {loading ? (
         <div className="">
           <Hearts
             height="80"
@@ -120,7 +121,7 @@ const App = () => {
             </form>
           )}
         </>
-      )}
+      )} */}
     </div>
   );
 };
