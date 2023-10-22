@@ -40,7 +40,7 @@ const App = () => {
 
       localStorage.setItem("selectedRadio", selectedValue);
 
-      toast.success("ধন্যবাদ বাবুনি, আর আমি তো তোমাকে সবচেয়ে বেশি ভালোবাসি।");
+      toast.success("জানতাম, এটাই বলবে তুমি!");
     }
   };
 
@@ -70,8 +70,7 @@ const App = () => {
               className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-teal-400 to-blue-600 text-transparent bg-clip-text"
               data-aos="fade-right"
             >
-              মেহেরুন, আমি চাই তুমি আমাকে তোমার সবটুকু দিয়ে আমাকে ভালবাসো। পারবে
-              কি এতটা ভালবাসা দিতে পারতে?
+              কণিকা, তোমার কিউট করে বেণী করাটা কি আমি এক নজরের জন্য দেখতে পারি?
             </p>
           )}
           {showText2 && (
@@ -91,7 +90,7 @@ const App = () => {
               <div className="form-control">
                 <label className="label cursor-pointer">
                   <span className="label-text">
-                    আমি তো তোমাকে আমার সবটুকু দিয়ে ভালোবাসি, আর কত বাসবো!
+                    হ্যা, দেখতে পারেন! আপনার ইচ্ছা পূরণ করব আমি!
                   </span>
                   <input
                     type="radio"
@@ -104,8 +103,7 @@ const App = () => {
               <div className="form-control mb-6">
                 <label className="label cursor-pointer">
                   <span className="label-text">
-                    ঠিক আছে বাবান, আমি তোমাকে আমার সবটুকু ভালোবাসা দিয়ে ভরিয়ে
-                    দিব!
+                    হাহা! জানেনই তো আমার উত্তর কি হবে!
                   </span>
                   <input
                     type="radio"
