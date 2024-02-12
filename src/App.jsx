@@ -1,128 +1,101 @@
-/* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
-import "./App.css";
-import { Hearts } from "react-loader-spinner";
-import toast from "react-hot-toast";
+import { useState } from "react";
+import Lottie from "react-lottie";
+import question from "./assets/question.json";
+import accept from "./assets/accept.json";
 
 const App = () => {
-  const [showText1, setShowText1] = useState(false);
-  const [showText2, setShowText2] = useState(false);
-  const [showText3, setShowText3] = useState(false);
+  const [yesButtonSize, setYesButtonSize] = useState(20);
+  const [noButtonText, setNoButtonText] = useState("No!");
+  const [accepted, setAccepted] = useState(false);
 
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowText1(true);
-    }, 3000);
-
-    setTimeout(() => {
-      setShowText2(true);
-    }, 5000);
-    setTimeout(() => {
-      setShowText3(true);
-    }, 8000);
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const selectedRadio = document.querySelector(
-      'input[name="radio-10"]:checked'
-    );
-    if (selectedRadio) {
-      const selectedValue = selectedRadio.value;
-
-      localStorage.setItem("selectedRadio", selectedValue);
-
-      toast.success("জানতাম, এটাই বলবে তুমি!");
-    }
+  const increaseYesButtonSize = () => {
+    setYesButtonSize((size) => size + 10);
+  };
+  const handleAccepted = () => {
+    setAccepted(true);
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const [value, setValue] = useState(null);
-  useEffect(() => {
-    localStorage.getItem(setValue("selectedRadio"));
-  }, []);
+  const changeNoButtonText = () => {
+    const noButtonTextOptions = [
+      "No!",
+      "Please!",
+      "Are you sure?",
+      "Do you really want to say no!",
+      "Think again!",
+      "One time, for me!",
+    ];
+    const newIndex = Math.floor(Math.random() * noButtonTextOptions.length);
+    setNoButtonText(noButtonTextOptions[newIndex]);
+    increaseYesButtonSize();
+  };
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: question,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const defaultOptions2 = {
+    loop: true,
+    autoplay: true,
+    animationData: accept,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const padding = yesButtonSize;
+
   return (
-    <div className="mt-[60%] md:mt-[20%]">
-      {/* {loading ? (
-        <div className="">
-          <Hearts
-            height="80"
-            width="800"
-            color="#df1b1b"
-            ariaLabel="hearts-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
+    <section className="h-screen flex justify-center overflow-hidden">
+      {accepted ? (
+        <div>
+          <div className="my-10">
+            <Lottie options={defaultOptions2} height={400} width={400} />
+          </div>
+          <h1 className="text-3xl lg:text-5xl text-white font-bold text-center">
+            Okay yay!
+          </h1>
         </div>
       ) : (
-        <>
-          {showText1 && (
-            <p
-              className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-teal-400 to-blue-600 text-transparent bg-clip-text"
-              data-aos="fade-right"
-            ></p>
-          )}
-          {showText2 && (
-            <p
-              className="mt-12 text-xl bg-gradient-to-r from-blue-400 via-red-400 to-blue-600 text-transparent bg-clip-text"
-              data-aos="fade-left"
+        <div>
+          <div className="my-10">
+            <Lottie options={defaultOptions} height={400} width={400} />
+            <h1 className="text-3xl lg:text-5xl text-primary font-bold text-center">
+              Will you be my valentine?
+            </h1>
+          </div>
+          <div
+            className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-20 mt-4"
+            style={{
+              marginBottom: `${yesButtonSize}px`,
+            }}
+          >
+            <button
+              className="btn bg-green-gradient font-bold text-white text-xl"
+              style={{
+                fontSize: `${yesButtonSize}px`,
+                padding: `${
+                  padding / 2
+                }px ${padding}px ${padding}px ${padding}px`,
+              }}
+              onClick={handleAccepted}
             >
-              এই ভালোবাসা তোমাকে পেতে চায়, <br /> ওই দুটি চোখ যেন কিছু বলে যায়।
-            </p>
-          )}
-          {showText3 && (
-            <form
-              className="mt-32"
-              onSubmit={handleSubmit}
-              data-aos="fade-bottom"
+              Yess!
+            </button>
+            <button
+              className="btn bg-red-gradient font-bold text-white text-xl"
+              onClick={changeNoButtonText}
             >
-              <div className="form-control">
-                <label className="label cursor-pointer">
-                  <span className="label-text">
-                    হ্যা, দেখতে পারেন! আপনার ইচ্ছা পূরণ করব আমি!
-                  </span>
-                  <input
-                    type="radio"
-                    name="radio-10"
-                    className="radio checked:bg-red-500"
-                    value="আমি তো তোমাকে আমার সবটুকু দিয়ে ভালোবাসি, আর কত বাসবো!"
-                  />
-                </label>
-              </div>
-              <div className="form-control mb-6">
-                <label className="label cursor-pointer">
-                  <span className="label-text">
-                    হাহা! জানেনই তো আমার উত্তর কি হবে!
-                  </span>
-                  <input
-                    type="radio"
-                    name="radio-10"
-                    className="radio checked:bg-blue-500"
-                    value="ঠিক আছে বাবান, আমি তোমাকে আমার সবটুকু ভালোবাসা দিয়ে ভরিয়ে দিব!"
-                  />
-                </label>
-              </div>
-              <button
-                className="font-medium  transition duration-200  shadow-md  md:mb-0  px-4 py-2 md:px-8 md:py-3 m-2 text-sm rounded-xl  text-white bg-teal-500 hover:bg-transparent hover:text-teal-400 border-0 border-b-4 border-teal-800 cursor-pointer"
-                type="submit"
-              >
-                Submit
-              </button>
-            </form>
-          )}
-        </>
-      )} */}
-    </div>
+              {noButtonText}
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 
