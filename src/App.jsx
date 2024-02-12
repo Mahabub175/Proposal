@@ -50,48 +50,50 @@ const App = () => {
   const padding = yesButtonSize;
 
   return (
-    <section className="h-screen flex justify-center overflow-hidden">
+    <section>
       {accepted ? (
-        <div>
+        <div className="h-screen flex justify-center overflow-hidden items-center">
           <div className="my-10">
             <Lottie options={defaultOptions2} height={400} width={400} />
-          </div>
-          <h1 className="text-3xl lg:text-5xl text-white font-bold text-center">
-            Okay yay!
-          </h1>
-        </div>
-      ) : (
-        <div>
-          <div className="my-10">
-            <Lottie options={defaultOptions} height={400} width={400} />
-            <h1 className="text-3xl lg:text-5xl text-primary font-bold text-center">
-              Will you be my valentine?
+            <h1 className="text-3xl lg:text-5xl text-pink-600 font-bold text-center">
+              I knew you love me!
             </h1>
           </div>
-          <div
-            className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-20 mt-4"
-            style={{
-              marginBottom: `${yesButtonSize}px`,
-            }}
-          >
-            <button
-              className="btn bg-green-gradient font-bold text-white text-xl"
+        </div>
+      ) : (
+        <div className="h-screen flex justify-center overflow-hidden">
+          <div>
+            <div className="my-10">
+              <Lottie options={defaultOptions} height={400} width={400} />
+              <h1 className="text-3xl lg:text-5xl text-primary font-bold text-center">
+                Will you be my valentine?
+              </h1>
+            </div>
+            <div
+              className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-20 mt-4"
               style={{
-                fontSize: `${yesButtonSize}px`,
-                padding: `${
-                  padding / 2
-                }px ${padding}px ${padding}px ${padding}px`,
+                marginBottom: `${yesButtonSize}px`,
               }}
-              onClick={handleAccepted}
             >
-              Yess!
-            </button>
-            <button
-              className="btn bg-red-gradient font-bold text-white text-xl"
-              onClick={changeNoButtonText}
-            >
-              {noButtonText}
-            </button>
+              <button
+                className="btn bg-green-gradient font-bold text-white text-xl"
+                style={{
+                  fontSize: `${yesButtonSize}px`,
+                  padding: `${
+                    padding / 2
+                  }px ${padding}px ${padding}px ${padding}px`,
+                }}
+                onClick={handleAccepted}
+              >
+                Yess!
+              </button>
+              <button
+                className="btn bg-red-gradient font-bold text-white text-xl"
+                onClick={changeNoButtonText}
+              >
+                {noButtonText}
+              </button>
+            </div>
           </div>
         </div>
       )}
